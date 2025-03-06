@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate and customize QR codes for free. Optimize images and download in PNG, SVG, or PDF formats. Fast, lightweight, and mobile-friendly.">
+    <meta name="keywords" content="QR code generator, QR code, image optimization, free QR code, customizable QR code">
+    <meta name="author" content="Raj Kumar">
+    <meta property="og:title" content="QR Code Generator with Image Optimization">
+    <meta property="og:description" content="Generate and customize QR codes for free. Optimize images and download in PNG, SVG, or PDF formats.">
+    <meta property="og:image" content="https://yourwebsite.com/qr-code-generator.png">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QR Code Generator with Image Optimization">
+    <meta name="twitter:description" content="Generate and customize QR codes for free. Optimize images and download in PNG, SVG, or PDF formats.">
+    <meta name="twitter:image" content="https://yourwebsite.com/qr-code-generator.png">
+    <link rel="canonical" href="https://yourwebsite.com">
+    <title>QR Code Generator with Image Optimization</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        h1, h2 {
+            color: #2575fc;
+        }
+        a {
+            color: #2575fc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .hero button {
+            padding: 15px 30px;
+            background: #2575fc;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .hero button:hover {
+            background: #1a5bbf;
+        }
+
+        /* QR Code Generator Section */
+        .qr-generator {
+            margin: 50px 0;
+        }
+        .qr-generator form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .qr-generator label {
+            font-weight: bold;
+        }
+        .qr-generator input, .qr-generator textarea, .qr-generator select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .qr-generator button {
+            padding: 10px 20px;
+            background: #2575fc;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .qr-generator button:hover {
+            background: #1a5bbf;
+        }
+        #qrCode {
+            margin-top: 20px;
+            text-align: center;
+        }
+        #downloadQR {
+            display: none;
+            margin: 20px auto 0; /* Center the button horizontally */
+            padding: 10px 20px;
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #downloadQR:hover {
+            background: #45a049;
+        }
+
+        /* Features & Benefits Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 50px 0;
+        }
+        .feature {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .feature i {
+            font-size: 40px;
+            color: #2575fc;
+        }
+        .feature h3 {
+            margin: 15px 0;
+        }
+
+        /* Blog Preview Section */
+        .blog-preview {
+            margin: 50px 0;
+        }
+        .blog-preview h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .blog-post {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .blog-post h3 {
+            margin-bottom: 10px;
+        }
+        .blog-post a {
+            color: #2575fc;
+        }
+
+        /* Footer */
+        footer {
+            background: #f4f4f4;
+            padding: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            margin: 0 10px;
+        }
+        .social-icons {
+            margin-bottom: 20px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 24px;
+        }
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .contact-form button {
+            padding: 10px 20px;
+            background: #2575fc;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background: #1a5bbf;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_UNIT_ID" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Generate QR Codes in Seconds</h1>
+            <p>Create and customize QR codes for free. Optimize images and download in PNG, SVG, or PDF formats.</p>
+            <button onclick="scrollToGenerator()">Get Started</button>
+        </div>
+
+        <!-- QR Code Generator Section -->
+        <div class="qr-generator" id="qrGenerator">
+            <h2>QR Code Generator</h2>
+            <form id="qrForm">
+                <label for="qrContent">Enter Text or URL:</label>
+                <input type="text" id="qrContent" placeholder="Enter content" required>
+                <label for="qrSize">Size:</label>
+                <input type="number" id="qrSize" min="100" max="1000" value="200">
+                <label for="qrColor">Color:</label>
+                <input type="color" id="qrColor" value="#000000">
+                <label for="qrBackground">Background Color:</label>
+                <input type="color" id="qrBackground" value="#ffffff">
+                <button type="submit">Generate QR Code</button>
+            </form>
+            <div id="qrCode"></div>
+            <button id="downloadQR">Download QR Code</button>
+        </div>
+
+        <!-- Features & Benefits Section -->
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-palette"></i>
+                <h3>Customizable</h3>
+                <p>Choose colors, add logos, and adjust sizes to match your brand.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-download"></i>
+                <h3>Downloadable</h3>
+                <p>Download QR codes in PNG, SVG, or PDF formats.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile-Friendly</h3>
+                <p>Fully responsive and optimized for all devices.</p>
+            </div>
+        </div>
+
+        <!-- Blog Preview Section -->
+        <div class="blog-preview">
+            <h2>Recent Blog Posts</h2>
+            <div class="blog-posts">
+                <div class="blog-post">
+                    <h3>How to Generate a QR Code</h3>
+                    <p>Learn how to create and customize QR codes for various use cases.</p>
+                    <a href="blog.html">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <h3>Best Practices for QR Code Marketing</h3>
+                    <p>Explore effective strategies for using QR codes in marketing campaigns.</p>
+                    <a href="blog.html">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <h3>Image Compression Techniques</h3>
+                    <p>Discover the importance of image compression and learn techniques to optimize images.</p>
+                    <a href="blog.html">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="contact-support.html">Contact</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://twitter.com/yourwebsite" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://facebook.com/yourwebsite" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/yourwebsite" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form id="footerContactForm">
+                <input type="text" placeholder="Your name" required>
+                <input type="email" placeholder="Your email" required>
+                <textarea rows="5" placeholder="Your message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </footer>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- QR Code Generator Script -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+    <!-- HTML2Canvas for Downloading QR Code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <script>
+        // Scroll to QR Generator Section
+        function scrollToGenerator() {
+            document.getElementById('qrGenerator').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // QR Code Generator Logic
+        document.getElementById('qrForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const qrContent = document.getElementById('qrContent').value;
+            const qrSize = document.getElementById('qrSize').value;
+            const qrColor = document.getElementById('qrColor').value;
+            const qrBackground = document.getElementById('qrBackground').value;
+
+            const qrCodeElement = document.getElementById('qrCode');
+            qrCodeElement.innerHTML = '';
+
+            QRCode.toCanvas(qrContent, {
+                width: qrSize,
+                color: {
+                    dark: qrColor,
+                    light: qrBackground
+                }
+            }, function (error, canvas) {
+                if (error) console.error(error);
+                qrCodeElement.appendChild(canvas);
+                document.getElementById('downloadQR').style.display = 'block';
+            });
+        });
+
+        // Download QR Code as PNG
+        document.getElementById('downloadQR').addEventListener('click', function() {
+            const qrCodeElement = document.getElementById('qrCode').querySelector('canvas');
+            if (!qrCodeElement) {
+                alert('Please generate a QR code first.');
+                return;
+            }
+            html2canvas(qrCodeElement).then(canvas => {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'qr-code.png';
+                link.click();
+            });
+        });
+
+        // Footer Contact Form Submission
+        document.getElementById('footerContactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for contacting us! We will get back to you soon.');
+            document.getElementById('footerContactForm').reset();
+        });
+    </script>
+</body>
+</html>
